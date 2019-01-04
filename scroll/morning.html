@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>
+    <audio id="sound">
+        <source src="./record/Alarmclock.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 第一張全黑的圖 改窗簾！ -->
+    <div id="black_start" style="background-color: black; height:100vh;"></div>
+
+    <!-- room -->
+    <div id="room" class="bg-room" style="height:200vh; filter: brightness(0%)">
+
+    </div>
+
+    <div id="video_morn" class="d-none animated">
+        <video id="video_morn_play" width="250" height="360">
+            <source src="./video/video_morning.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- phone -->
+    <div id="phone" class="d-none animated">
+        <img src="./img/hand-01.png" alt="phone" style="width:500px; height: 700px;">
+    </div>
+
+    <!-- breakfast -->
+    <!-- <section class="
+            trans">
+        <h1>Breakfast</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, molestias? Vero, repellat nisi. Consectetur
+            quas dolor, minus totam, asperiores beatae dicta, libero voluptas numquam dolorem iure delectus?
+            Exercitationem, suscipit distinctio?</p>
+        </section>
+        <div class="breakfast"></div> -->
+
+
+    <!-- MRT -->
+    <!-- <section class="trans">
+        <h1>MRT</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, molestias? Vero, repellat nisi. Consectetur
+            quas dolor, minus totam, asperiores beatae dicta, libero voluptas numquam dolorem iure delectus?
+            Exercitationem, suscipit distinctio?</p>
+    </section>
+    <div class='MRT'></div> -->
+
+
+    <!-- CLASSROOM -->
+    <section class="trans">
+        <h1>CLASSROOM</h1>
+        <div class="row justify-content-center">
+            <div id="barchart" class="col-md-8">
+                    <div class="row py-2">
+                        <div class="col-md-2">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="col-md-10 align-self-center">
+                            <div class="bardiv" data-width=400 data-color="#ff0000" style="top:0px;">Instagram</div>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-md-2">
+                            <i class="fab fa-line"></i>
+                        </div>
+                        <div class="col-md-10 align-self-center">
+                            <div class="bardiv" data-width=300 data-color="#00ff00" style="top:30px;">LINE</div>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-md-2">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div class="col-md-10 align-self-center">
+                            <div class="bardiv" data-width=500 data-color="#0000ff" style="top:60px;">Youtube</div>
+                        </div>
+                    </div>
+ 
+            </div>         
+        </div>
+
+    </section class="trans">
+    <div class='bg-class bg-stand'></div>
+    
+    <div id="video_class" class="d-none animated">
+        <video id="video_class_play" width="250" height="360">
+            <source src="./video/video_morning.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div id="phone_class" class="d-none animated">
+        <img src="./img/hand-01.png" alt="phone" style="width:500px; height: 700px;">
+    </div>
+
+    <!-- LUNCH W/ FRIENDS -->
+    <!-- <section class="trans">
+        <h1>Breakfast</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, molestias? Vero, repellat nisi. Consectetur
+            quas dolor, minus totam, asperiores beatae dicta, libero voluptas numquam dolorem iure delectus?
+            Exercitationem, suscipit distinctio?</p>
+    </section>
+    <div class='lunch'></div> -->
+
+    <!-- CLASSROOM -->
+    <section class="trans">
+        <h1>LIBRARY</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, molestias? Vero, repellat nisi.
+            Consectetur
+            quas dolor, minus totam, asperiores beatae dicta, libero voluptas numquam dolorem iure delectus?
+            Exercitationem, suscipit distinctio?</p>
+    </section class="trans">
+    <div class='bg-lib bg-stand'></div>
+    <div id="phone_lib" class="d-none animated">
+        <img src="./img/hand-01.png" alt="phone" style="width:500px; height: 700px;">
+    </div>
+
+
+    <!-- CLASSROOM -->
+    <section class="trans">
+        <h1>LIVING</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, molestias? Vero, repellat nisi.
+            Consectetur
+            quas dolor, minus totam, asperiores beatae dicta, libero voluptas numquam dolorem iure delectus?
+            Exercitationem, suscipit distinctio?</p>
+    </section class="trans">
+    <div class='bg-living bg-stand'></div>
+    <div id="phone_living" class="d-none animated">
+        <img src="./img/hand-01.png" alt="phone" style="width:500px; height: 700px;">
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- JS -->
+
+
+    <!-- bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>Î
+
+    <!-- js -->
+    <!-- 聲音 -->
+    <!-- <script>
+        let sound = document.getElementById('sound');
+        const playPromise = sound.play();
+        if (playPromise !== null) {
+            playPromise.catch(() => { sound.play(); })
+        }
+    </script> -->
+
+    <!-- Jq -->
+    <script>
+    
+
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                let scroll = $(document).scrollTop();
+                console.log(scroll);
+                if (scroll > 200 && scroll < 500) {
+                    $('#sound')[0].play();
+                }
+
+                if (scroll > 500) {
+                    $('#sound')[0].pause();
+                }
+
+                $("#room").each(function () {
+                    if (scroll > 10 && scroll < 500) {
+                        $("#room").css('filter', `brightness(${(scroll - 10) / 400})`);
+                    }
+                    // console.log(scroll);
+                });
+                if (scroll > 825) {
+                    $("#phone").removeClass('d-none');
+                    $("#phone").addClass('fadeInUp slow cell');
+                    $('#phone').css('position', 'fixed');
+                    $('#phone').css('top', '30%');
+                    $('#phone').css('right', '50px');
+                    $("#video_morn").removeClass('d-none');
+                    $("#video_morn").addClass('fadeInUp slow cell');
+                    $('#video_morn').css('position', 'fixed');
+                    $('#video_morn').css('top', '37%');
+                    $('#video_morn').css('left', '715px');
+                    $('#video_morn').css('z-index', '2');
+                }
+
+                if (scroll > 830) {
+                    $('#video_morn_play')[0].play();
+                }
+
+                if (scroll > 1645) {
+                    $("#phone").addClass('fadeOutDown slow cell');
+                    $('#video_morn').addClass('fadeOutDown slow cell');
+                }
+
+                if (scroll > 2700) {
+                    $("#phone_class").removeClass('d-none');
+                    $("#phone_class").addClass('fadeInUp slow cell');
+                    $('#phone_class').css('position', 'fixed');
+                    $('#phone_class').css('top', '30%');
+                    $('#phone_class').css('right', '50px');
+                    $("#video_class").addClass('fadeInUp slow cell');
+                    $('#video_class').css('position', 'fixed');
+                    $('#video_class').css('top', '37%');
+                    $('#video_class').css('left', '715px');
+                    $('#video_class').css('z-index', '2');
+                }
+    
+                if (scroll > 3500) {
+                    $('#video_class_play')[0].play();
+                }
+
+                if (scroll > 4000) {
+                    $("#phone_class").addClass('fadeOutDown slow cell');
+                    $('#video_class').addClass('fadeOutDown slow cell');
+                }
+
+                // this is for the first barchart
+                var winTop = $(window).scrollTop();
+                var winh = $(window).height();
+                var objpos = $("#barchart").offset().top;
+                if (objpos < winTop + winh * 0.8) {
+                    $("#barchart .bardiv").each(function() {                         //barchart 下面的每一個 div
+                        var w = 250 + $(this).data("width") + 'px';
+                        var myColor = $(this).data("color")
+                        $(this).animate({
+                            width: w,
+                            opacity:"1",
+                            backgroundColor:"#bd5d38", 
+                        }, 1000);                                                //1000 毫秒 = 1 秒
+                    });
+                }
+
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

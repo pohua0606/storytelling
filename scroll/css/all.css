@@ -1,0 +1,67 @@
+body{
+    height: 20000px;
+}
+
+.bg-room{
+    background-image: url(../img/room2.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-stand{
+    /* position: relative; */
+    height: 200vh;
+}
+
+.bg-class{
+    background-image: url(../img/class.PNG);
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-lib{
+    background-image: url(../img/lib.PNG);
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-living{
+    background-image: url(../img/living.PNG);
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.cell{
+    left: 50%;
+    bottom: 0;
+}
+
+.trans{
+    text-align: center;
+	padding: 50px 80px;
+    background-color: #282e34;
+	color: #ddd;
+}
+
+.bardiv {
+    height: 25px;
+    width: 0;
+    left: 0;
+    background-color: #bd5d38;
+    opacity: 0.5;
+    color: white;
+    border-radius: 3px;
+}
+
+
+
+
