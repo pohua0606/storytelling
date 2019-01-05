@@ -2,41 +2,47 @@ body{
     height: 20000px;
 }
 
-.bg-room{
-    background-image: url(../img/room2.jpg);
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .bg-stand{
     /* position: relative; */
     height: 200vh;
-}
-
-.bg-class{
-    background-image: url(../img/class.PNG);
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.bg-room{
+    background-image: url(../img/room_morning.PNG);
+
+}
+
+.bg-breakfast{
+    background-image: url(../img/room_morning.PNG);
+}
+
+.bg-mrt{
+    background-image: url(../img/mrt.PNG);
+}
+
+
+.bg-class{
+    background-image: url(../img/class.PNG);
+
 }
 
 .bg-lib{
     background-image: url(../img/lib.PNG);
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+
 }
 
 .bg-living{
     background-image: url(../img/living.PNG);
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+
+}
+
+.bg-night{
+    background-image: url(../img/room_night.PNG);
+
 }
 
 
@@ -49,7 +55,8 @@ body{
     text-align: center;
 	padding: 50px 80px;
     background-color: #282e34;
-	color: #ddd;
+    color: #ddd;
+    height: calc(100vh + 100px);
 }
 
 .bardiv {
@@ -62,6 +69,12 @@ body{
     border-radius: 3px;
 }
 
+.video-size{
+    width: 320px;
+    height: 380px;
+}
 
-
+#barchart_morning{
+    margin-top:200px;
+}
 
