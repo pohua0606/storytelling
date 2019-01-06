@@ -13,198 +13,47 @@
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+    <!-- TEST ALARM CLOCK FONT -->
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+
+    <!-- chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.5.0"></script>
 </head>
 
 <body>
-    <!-- Insert alarm clock! and autoplay at the start -->
-    <audio id="sound">
-        <source src="./record/Alarmclock.mp3" type="audio/mpeg">
-    </audio>
 
-    <!-- 第一張全黑的圖 改窗簾！ -->
-    <div id="black_start bg-stand" style="background-color: black; height:100vh;"></div>
+    <section class="trans" style = "height:200vh;" >
+        <h1>TOTAL</h1>
+        <div><canvas id="finalChart" width="200px" height="100px"></canvas></div>
 
-    <!-- room -->
-    <div id="room" class="bg-room bg-stand" style="filter: brightness(0%)"></div>
-
-    <!-- insert the video on the phone -->
-    <div id="video_morn" class="d-none animated ">
-        <video id="video_morn_play" class="video-size">
-            <source src="./video/video_morning_ig.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <!-- phone_morn -->
-    <div id="phone_morn" class="d-none animated">
-        <img src="./img/hand-sketch.png" alt="phone" style="width:600px; height: 700px;">
-    </div>
-
-    <!-- 起床手機使用量 bar -->
-    <section id="trand_class" class="trans">
-        <h1>MORNING</h1>
-        <div class="row justify-content-center">
-            <div id="barchart_morning" class="col-md-8 invisible">
-                    <div class="row py-2">
-                        <div class="col-md-2">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <div class="col-md-10 align-self-center">
-                            <div class="bardiv" data-width=400 data-color="#ff0000" style="top:0px;">Instagram</div>
-                        </div>
-                    </div>
-                    <div class="row py-2">
-                        <div class="col-md-2">
-                            <i class="fab fa-line"></i>
-                        </div>
-                        <div class="col-md-10 align-self-center">
-                            <div class="bardiv" data-width=300 data-color="#00ff00" style="top:30px;">LINE</div>
-                        </div>
-                    </div>
-                    <div class="row py-2">
-                        <div class="col-md-2">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                        <div class="col-md-10 align-self-center">
-                            <div class="bardiv" data-width=500 data-color="#0000ff" style="top:60px;">Youtube</div>
-                        </div>
-                    </div>
-            </div>         
+        <!-- HOURGLASS -->
+        <div class="row">
+            <div class="col-6">
+                <div id='hour-glass' class = "d-none animated" style="margin-top: 200px; left:50%; transform:translate(-50%);">
+                    <div id='glass'></div>
+                    <div id='sand-stream'></div>
+                    <div id='top-sand'></div>
+                    <div id='bottom-sand'></div>
+            </div>
         </div>
-    </section class="trans">
- 
-    
 
+            <div class="col-6" style= "margin-top: 200px;"">
+                <div class = "d-none" id="text_final1" style="color:white; text-align:center; ">
+                    <h3>一天使用4小時，換算成一生...</h3>
+                </div>
 
-    <!-- breakfast 進來-->
-    <div id="breakfast" class="bg-breakfast bg-stand"></div>
-    <!-- insert the video on the phone -->
-    <div id="video_breakfast" class="d-none animated ">
-        <video id="video_breakfast_play" class="video-size">
-            <source src="./video/video_breakfast.mp4" type="video/mp4">
-        </video>
-    </div>
+                <div class = "d-none" id="text_final2" style="color:white; text-align:center; ">
+                    <h3>將佔據你人生20年的時間</h3>
+                </div>
 
-    <!-- phone_breakfast -->
-    <div id="phone_breakfast" class="d-none animated">
-        <img src="./img/hand-sketch.png" alt="phone" style="width:600px; height: 700px;">
-    </div>
-    <section class="trans">
-        <h1>BREAKFAST</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, molestias? Vero, repellat nisi.
-            Consectetur
-            quas dolor, minus totam, asperiores beatae dicta, libero voluptas numquam dolorem iure delectus?
-            Exercitationem, suscipit distinctio?</p>
-    </section>
-
-
-
-
-    <!-- MRT -->
-   <div class='bg-mrt bg-stand'></div>
-    <!-- class video -->
-    <div id="video_mrt" class="d-none animated">
-        <video id="video_mrt_play" class="video-size">
-            <source src="./video/ptt.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div id="phone_mrt" class="d-none animated">
-        <img src="./img/hand-sketch.png" alt="phone" style="width:600px; height: 700px;">
-    </div>
-    <section class="trans">
-        <h1>MRT</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, molestias? Vero, repellat nisi.
-            Consectetur
-            quas dolor, minus totam, asperiores beatae dicta, libero voluptas numquam dolorem iure delectus?
-            Exercitationem, suscipit distinctio?</p>
-    </section >
-
-
-
-
-    <!-- classroom進來 -->
-    
-    <div class='bg-class bg-stand'></div>
-    <!-- class video -->
-    <div id="video_class" class="d-none animated">
-        <video id="video_class_play" class="video-size">
-            <source src="./video/video_class.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div id="phone_class" class="d-none animated">
-        <img src="./img/hand-sketch.png" alt="phone" style="width:600px; height: 700px;">
-    </div>
-    <section class="trans">
-        <h1>CLASSROOM</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, molestias? Vero, repellat nisi.
-            Consectetur
-            quas dolor, minus totam, asperiores beatae dicta, libero voluptas numquam dolorem iure delectus?
-            Exercitationem, suscipit distinctio?</p>
-    </section >
-
-
-
-
-
-    <!-- rest - library 進來-->
-    <div class='bg-lib bg-stand'></div>
-    <div id="phone_lib" class="d-none animated">
-        <img src="./img/hand-sketch.png" alt="phone" style="width:600px; height: 700px;">
-    </div>
-        <div id="video_lib" class="d-none animated">
-        <video id="video_lib_play" class="video-size">
-            <source src="./video/video_lib.mp4" type="video/mp4">
-        </video>
-    </div>
-    <section class="trans">
-        <h1>LIBRARY</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, molestias? Vero, repellat nisi.
-            Consectetur
-            quas dolor, minus totam, asperiores beatae dicta, libero voluptas numquam dolorem iure delectus?
-            Exercitationem, suscipit distinctio?</p>
-    </section class="trans">
-
-
-
-
-    <!-- Living room 進來-->
-
-    <div class='bg-living bg-stand'></div>
-    <div id="phone_living" class="d-none animated">
-        <img src="./img/hand-sketch.png" alt="phone" style="width:600px; height: 700px;">
-    </div>
-        <div id="video_living" class="d-none animated">
-        <video id="video_living_play" class="video-size">
-            <source src="./video/video_living.mp4" type="video/mp4">
-        </video>
-    </div>
-    <section class="trans">
-        <h1>LIVING</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, molestias? Vero, repellat nisi.
-            Consectetur
-            quas dolor, minus totam, asperiores beatae dicta, libero voluptas numquam dolorem iure delectus?
-            Exercitationem, suscipit distinctio?</p>
-    </section class="trans">
-
-
-
-
-    <!-- bedroom night room 進來-->
-    
-    <div class='bg-night bg-stand'></div>
-    <div id="phone_night" class="d-none animated">
-        <img src="./img/hand-sketch.png" alt="phone" style="width:600px; height: 700px;">
-    </div>
-        <div id="video_night" class="d-none animated">
-        <video id="video_night_play" class="video-size">
-            <source src="./video/video_night.mp4" type="video/mp4">
-        </video>
-    </div>
-    <section class="trans">
-        <h1>NIGHT</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, molestias? Vero, repellat nisi.
-            Consectetur
-            quas dolor, minus totam, asperiores beatae dicta, libero voluptas numquam dolorem iure delectus?
-            Exercitationem, suscipit distinctio?</p>
+                <div class = "d-none" id="text_final3" style="color:white; text-align:center; ">
+                    <h3>這是你想過的人生嗎?</h3>
+                </div>
+            </div>
+        </div>
     </section class="trans">
 
 
@@ -219,167 +68,99 @@
         crossorigin="anonymous"></script>Î
     <!-- Jq -->
     <script>
-    
-        $(document).ready(function () {
-            $(window).scroll(function () {
-                let scroll = $(document).scrollTop();
-                 console.log(scroll);
-                
-                var winh = $(window).height();
+        var ctxFinal = document.getElementById("finalChart").getContext('2d');
 
-                if (scroll > 200 && scroll < 500) {
-                    // $('#sound')[0].play();
-                }
-                if (scroll > 500) {
-                    $('#sound')[0].pause();
-                }
-                $("#room").each(function () {
-                    if (scroll > 10 && scroll < 500) {
-                        $("#room").css('filter', `brightness(${(scroll - 10) / 550})`);
+        var inViewFinal = false;
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                var winTopFinal = $(window).scrollTop();
+                var winhFinal = $(window).height();
+                var objposFinal = $("#finalChart").offset().top;
+                if (objposFinal < winTopFinal + winhFinal * 0.5 && !inViewFinal) {
+                    new Chart(ctxFinal, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ["Time spent on smartphone", "Other"],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [4, 12],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    // 'rgba(255, 206, 86, 0.2)',
+                                    // 'rgba(75, 192, 192, 0.2)',
+                                    // 'rgba(153, 102, 255, 0.2)',
+                                    // 'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255,99,132,1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    // 'rgba(255, 206, 86, 1)',
+                                    // 'rgba(75, 192, 192, 1)',
+                                    // 'rgba(153, 102, 255, 1)',
+                                    // 'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1,
+                                datalabels: {
+                                    color: '#ddd',
+                                    fontSize: 25
+                                }
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            },
+                            responsive: true, // default true
+                            title:{
+                                display: true,
+                                text: "Time in day",
+                                fontSize: 25
+                            },
+                            plugins: {
+                                datalabels: {
+                                formatter: function(value, context) {
+                                return context.chart.data.labels[context.dataIndex];
+                                    }
+                                }
+                            }                        
+                        }                        
                     }
-                    // console.log(scroll);
-                });
-
-                var phone_show = function(phone){
-                    var phone_id = $(phone);
-                    phone_id.removeClass('d-none');
-                    phone_id.addClass('fadeIn slow cell');
-                    phone_id.css('position', 'fixed');
-                    phone_id.css('top', '30%');
-                    phone_id.css('right', '50px');
-                }
-                
-                var video_show = function(video){
-                    var video_id = $(video);
-                    video_id.removeClass('d-none');
-                    video_id.addClass('fadeIn slow cell');
-                    video_id.css('position', 'fixed');
-                    video_id.css('top', '37%');
-                    video_id.css('left', '728px');
-                    video_id.css('z-index', '2');
-                }
-                // 起床手機進來
-                if (scroll > 825 ){
-                    phone_show("#phone_morn");
-                    video_show("#video_morn");
-                    $("#phone_morn").addClass('fadeInUp slow cell');
-                    $("#video_morn").addClass('fadeInUp slow cell');
-                    
-                } 
-                if (scroll > 830 ) {
-                    $('#video_morn_play')[0].play();
-                }
-                // 起床退出
-                if (scroll > 1645) {
-                    $("#phone_morn").addClass('fadeOutDown slow cell');
-                    $('#video_morn').addClass('fadeOutDown slow cell');
-                }
-                // 早餐進來 
-                if (scroll > 3000 ) {
-                    phone_show("#phone_breakfast");     
-                    video_show("#video_breakfast");
-                    
-                    
-                }
-
-                if (scroll > 3005 + winh) {     
-                    $('#video_breakfast_play')[0].play();
-                }
-                // 早餐出去
-                if (scroll > 3800 + winh) {
-                    $("#phone_breakfast").addClass('fadeOutDown slow cell');
-                    $('#video_breakfast').addClass('fadeOutDown slow cell');
-                }
-
-                // MRT進來 
-                if (scroll > 5750) {
-                    phone_show("#phone_mrt");
-                    video_show("#video_mrt")
-                }
-                if (scroll > 5755) {
-                    $('#video_mrt_play')[0].play();
-                }
-                // MRT出去
-                if (scroll > 6500) {
-                    $("#phone_mrt").addClass('fadeOutDown slow cell');
-                    $('#video_mrt').addClass('fadeOutDown slow cell');
-                }
-
-                // clssroom進來 
-                if (scroll > 8500) {
-                    phone_show("#phone_class");
-                    video_show("#video_class")
-                }
-                if (scroll > 8505) {
-                    $('#video_class_play')[0].play();
-                }
-                // classroom出去
-                if (scroll > 9300) {
-                    $("#phone_class").addClass('fadeOutDown slow cell');
-                    $('#video_class').addClass('fadeOutDown slow cell');
-                }
-
-                // lib進來 
-                if (scroll > 11070) {
-                    phone_show("#phone_lib");
-                    video_show("#video_lib")
-                }
-                if (scroll > 11075) {
-                    $('#video_lib_play')[0].play();
-                }
-                // lib出去
-                if (scroll > 11906) {
-                    $("#phone_lib").addClass('fadeOutDown slow cell');
-                    $('#video_lib').addClass('fadeOutDown slow cell');
-                }
-
-                // living進來 
-                if (scroll > 13600) {
-                    phone_show("#phone_living");
-                    video_show("#video_living")
-                }
-                if (scroll > 13605) {
-                    $('#video_living_play')[0].play();
-                }
-                // living出去
-                if (scroll > 14480) {
-                    $("#phone_living").addClass('fadeOutDown slow cell');
-                    $('#video_living').addClass('fadeOutDown slow cell');
-                }
-                // night進來 
-                if (scroll > 16210) {
-                    phone_show("#phone_night");
-                    video_show("#video_night")
-                }
-                if (scroll > 3005) {
-                    $('#video_night_play')[0].play();
-                }
-                // night出去
-                if (scroll > 17031) {
-                    $("#phone_night").addClass('fadeOutDown slow cell');
-                    $('#video_night').addClass('fadeOutDown slow cell');
-                }
-
-                // 起床手機使用barchart
-                var winTop = $(window).scrollTop();
-                var winh = $(window).height();
-                var objpos = $("#barchart_morning").offset().top;
-                if (scroll > 2200){
-                    $("#barchart_morning").removeClass('invisible');
-                }
-                if (objpos < winTop + winh * 0.3) {
-                    $("#barchart_morning .bardiv").each(function() {                         //barchart 下面的每一個 div
-                        var w = 250 + $(this).data("width") + 'px';
-                        var myColor = $(this).data("color")
-                        $(this).animate({
-                            width: w,
-                            opacity:"1",
-                            backgroundColor:"#bd5d38", 
-                        }, 1000);                                                //1000 毫秒 = 1 秒
-                    });
+                    );
+                    inViewFinal = true;
                 }
             });
         });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                var winTopGlass = $(window).scrollTop();
+                var winhGlass = $(window).height();
+                var objposGlass = $("#hour-glass").offset().top;
+                if (objposGlass < winTopGlass + winhGlass * 0.3) {
+                    var glass_id = $('#hour-glass');
+                    var text_fin1 = $('#text_final1');
+                    var text_fin2 = $('#text_final2');
+                    var text_fin3 = $('#text_final3');
+                    glass_id.removeClass('d-none');
+                    glass_id.addClass('fadeIn slow');
+                    text_fin1.removeClass('d-none');
+                    text_fin1.addClass('fadeIn slow');
+                    text_fin2.removeClass('d-none');
+                    text_fin2.addClass('fadeIn slow');
+                    text_fin3.removeClass('d-none');
+                    text_fin3.addClass('fadeIn slow');
+                }
+            });
+        });
+
+
     </script>
 </body>
 
