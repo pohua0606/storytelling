@@ -12,67 +12,932 @@
     <link rel="stylesheet" href="./css/animate.min.css">
 
     <!-- fontawesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    
-    <!-- TEST ALARM CLOCK FONT -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+
+    <!-- chart js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+
+    <!-- alarm clock font -->
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 
-    <!-- chart.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.5.0"></script>
 </head>
 
 <body>
+    <!-- Insert alarm clock! and autoplay at the start -->
+    <audio id="sound">
+        <source src="./record/Alarmclock.mp3" type="audio/mpeg">
+    </audio>
 
-    <section class="trans" style = "height:200vh;" >
+    <!-- 第一張全黑的圖 改窗簾！ -->
+    <div id="black_start bg-stand" style="background-color: black; height:100vh;">
+        <div class="am position-absolute text-white" style="left:50%; top:40%; transform:translate(-50%, -50%); font-size: 60px; font-family: 'Orbitron', sans-serif; color: #32CD32!important">
+            8:00 AM <br>
+            Day in the Life
+        </div>
+    </div>
+
+
+    <!-- room -->
+    <div id="room" class="bg-room bg-stand" style="filter: brightness(0%)">
+    </div>
+
+    <!-- insert the video on the phone -->
+    <div id="video_morn" class="d-none animated ">
+        <video id="video_morn_play" class="video-size">
+            <source src="./video/video_morning_ig.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- phone_morn -->
+    <div id="phone_morn" class="d-none animated">
+        <img src="./img/hand-sketch.png" alt="phone" style="width:600px; height: 700px;">
+    </div>
+
+    <!-- room_text -->
+    <div id="room_text" class="d-none animated text-back">
+        <p>也太爽了吧...</p>
+        <p>到底為啥可以一直爆吃..太有錢了吧</p>
+        <p>不用考試嗎..</p>
+    </div>
+
+    <!-- 起床手機使用量 bar -->
+    <section id="trand_class" class="trans">
+        <h1>MORNING</h1>
+        <div><canvas id="morningChart" width="100" height="50"></canvas></div>
+    </section class="trans">
+
+
+
+
+    <!-- breakfast 進來-->
+    <div id="breakfast" class="bg-breakfast bg-stand"></div>
+    <!-- insert the video on the phone -->
+    <div id="video_breakfast" class="d-none animated ">
+        <video id="video_breakfast_play" class="video-size">
+            <source src="./video/video_breakfast.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- phone_breakfast -->
+    <div id="phone_breakfast" class="d-none animated">
+        <img src="./img/hand-sketch.png" alt="phone" style="width:600px; height: 700px;">
+    </div>
+    <div id="breakfast_text1" class="d-none animated h1" style="width: 200px; height: 80px; background-color: rgba(0,0,0,0.5); color: white; padding: 20px; text-align: center">
+        <h1>蔡英文?</h1>
+    </div>
+    <div id="breakfast_text2" class="d-none animated h1" style="width: 200px; height: 80px; background-color: rgba(0,0,0,0.5); color: white; padding: 20px; text-align: center">
+        <h1>豬瘟?</h1>
+    </div>
+    <div id="breakfast_text3" class="d-none animated h1" style="width: 200px; height: 80px; background-color: rgba(0,0,0,0.5); color: white; padding: 20px; text-align: center">
+        <h1>韓國瑜?</h1>
+    </div>
+
+    <section class="trans">
+        <h1>BREAKFAST</h1>
+        <div><canvas id="breakfastChart" width="100" height="50"></canvas></div>
+    </section>
+
+
+
+
+    <!-- MRT -->
+    <div class='bg-mrt bg-stand'></div>
+    <!-- class video -->
+    <div id="video_mrt" class="d-none animated">
+        <video id="video_mrt_play" class="video-size">
+            <source src="./video/video_mrt_ptt1.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="phone_mrt" class="d-none animated">
+        <img src="./img/hand-sketch.png" alt="phone" style="width:600px; height: 700px;">
+    </div>
+    <div id="mrt_text" class="d-none animated h1 text-back-mrt">
+        <p>
+            五樓講啊幹！
+        </p>
+        <p>
+            你他媽才一輩子都交不到..
+        </p>
+    </div>
+
+    <section class="trans">
+        <h1>MRT</h1>
+        <div><canvas id="mrtChart" width="100" height="50"></canvas></div>
+    </section>
+
+
+
+
+
+
+    <!-- classroom進來 -->
+
+    <div class='bg-class bg-stand'></div>
+    <!-- class video -->
+    <div id="video_class" class="d-none animated">
+        <video id="video_class_play" class="video-size-horizontal">
+            <source src="./video/video_class_game.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="phone_class" class="d-none animated">
+        <img src="./img/two-hands.png" alt="phone" style="width:600px; height: 400px;">
+    </div>
+    <section class="trans">
+        <h1>CLASSROOM</h1>
+        <div><canvas id="classroomChart" width="100" height="50"></canvas></div>
+    </section>
+
+
+
+
+
+    <!-- rest - library 進來-->
+    <div class='bg-lib bg-stand'></div>
+    <div id="phone_lib" class="d-none animated">
+        <img src="./img/hand-sketch.png" alt="phone" style="width:600px; height: 700px;">
+    </div>
+    <div id="video_lib" class="d-none animated">
+        <video id="video_lib_play" class="video-size">
+            <source src="./video/video_class.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="lib_text1" class="d-none animated h1 text-back-mrt">
+        <p>
+            來讀點書好了
+        </p>
+    </div>
+    <div id="lib_text2" class="d-none animated h1 text-back-mrt">
+        <p>
+            還是先聊個line好了....
+        </p>
+    </div>
+
+    <section class="trans">
+        <h1>LIBRARY</h1>
+        <div><canvas id="libChart" width="100" height="50"></canvas></div>
+    </section class="trans">
+
+    <!-- bedroom night room 進來-->
+
+    <div class='bg-night bg-stand-night'></div>
+    <div id="video_night" class="d-none animated">
+        <video id="video_night_play" class="video-size-horizontal">
+            <source src="./video/video_night.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="phone_night" class="d-none animated">
+        <img src="./img/two-hands.png" alt="phone" style="width:600px; height: 400px;">
+    </div>
+
+    <div id="night_text" class="d-none animated h2 text-back-night">
+        <p>
+            來看個youtube放鬆一下好了
+        </p>
+    </div>
+    <section class="trans">
+        <h1>Night</h1>
+        <div><canvas id="nightChart" width="100" height="50"></canvas></div>
+    </section class="trans">
+
+    <!-- total -->
+    <section class="trans">
         <h1>TOTAL</h1>
         <div><canvas id="finalChart" width="200px" height="100px"></canvas></div>
+    </section>
 
-        <!-- HOURGLASS -->
+    <section class="trans" style="height:200vh;">
         <div class="row">
             <div class="col-6">
-                <div id='hour-glass' class = "d-none animated" style="margin-top: 200px; left:50%; transform:translate(-50%);">
+                <div id='hour-glass' class="d-none animated" style="left:50%; transform:translate(-50%);">
                     <div id='glass'></div>
                     <div id='sand-stream'></div>
                     <div id='top-sand'></div>
                     <div id='bottom-sand'></div>
-            </div>
-        </div>
-
-            <div class="col-6" style= "margin-top: 200px;"">
-                <div class = "d-none" id="text_final1" style="color:white; text-align:center; ">
-                    <h3>一天使用4小時，換算成一生...</h3>
-                </div>
-
-                <div class = "d-none" id="text_final2" style="color:white; text-align:center; ">
-                    <h3>將佔據你人生20年的時間</h3>
-                </div>
-
-                <div class = "d-none" id="text_final3" style="color:white; text-align:center; ">
-                    <h3>這是你想過的人生嗎?</h3>
                 </div>
             </div>
+
+            <div class="col-6">
+                <div class=" d-none" id="text_final1" style="color:white; text-align:center; ">
+                    <h3>一天使用 <span style="font-size:60px; color:rgb(246, 99, 103) "> 4 </span> 小時，約每日的1/4</h3>
+                    <h3>以平均壽命80歲來算...</h3>
+                </div>
+                <br>
+                <div class="d-none" id="text_final2" style="color:white; text-align:center; ">
+                    <h3>將佔據你人生 <span style="font-size:60px; color:rgb(246, 99, 103)"> 20年 </span>的時間</h3>
+                </div>
+                <br>
+                <div class="d-none" id="text_final3" style="color:white; text-align:center; ">
+                    <h3></h3>
+                </div>
+            </div>
         </div>
-    </section class="trans">
+    </section>
 
 
 
 
 
     <!-- bootstrap js -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>Î
     <!-- Jq -->
     <script>
-        var ctxFinal = document.getElementById("finalChart").getContext('2d');
 
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                let scroll = $(document).scrollTop();
+                console.log(scroll);
+
+                var winh = $(window).height();
+
+                if (scroll > 150 && scroll < 500) {
+                    $('#sound')[0].play();
+                }
+                if (scroll > 500) {
+                    $('#sound')[0].pause();
+                }
+                $("#room").each(function () {
+                    if (scroll > 10 && scroll < 500) {
+                        $("#room").css('filter', `brightness(${(scroll - 10) / 550})`);
+                    }
+                    // console.log(scroll);
+                });
+
+
+
+                var phone_show = function (phone) {
+                    var phone_id = $(phone);
+                    phone_id.removeClass('d-none');
+                    phone_id.addClass('fadeInUp slow cell');
+                    phone_id.css('position', 'fixed');
+                    phone_id.css('top', '30%');
+                    phone_id.css('right', '50px');
+                }
+
+                var video_show = function (video) {
+                    var video_id = $(video);
+                    video_id.removeClass('d-none');
+                    video_id.addClass('fadeInUp slow cell');
+                    video_id.css('position', 'fixed');
+                    video_id.css('top', '37%');
+                    video_id.css('left', '728px');
+                    video_id.css('z-index', '2');
+                }
+
+                var text_show = function (text) {
+                    var text_id = $(text);
+                    text_id.removeClass('d-none');
+                    text_id.addClass('fadeIn slower cell');
+                    text_id.css('position', 'fixed');
+                    text_id.css('top', '15%');
+                    text_id.css('left', '250px');
+                    text_id.css('z-index', '3');
+                }
+
+
+                // 起床手機進來
+                if (scroll > 920) {
+                    phone_show("#phone_morn");
+                    video_show("#video_morn");
+                    $("#phone_morn").addClass('fadeInUp slow cell');
+                    $("#video_morn").addClass('fadeInUp slow cell');
+
+                }
+                if (scroll > 925) {
+                    $('#video_morn_play')[0].play();
+                }
+
+                if (scroll > 1000) {
+                    text_show("#room_text")
+                }
+
+                // 起床退出
+                if (scroll > 2600) {
+                    $("#phone_morn").addClass('fadeOutDown slow cell');
+                    $('#video_morn').addClass('fadeOutDown slow cell');
+                    $("#room_text").addClass('fadeOutDown slow cell');
+                }
+                // 早餐進來 
+                if (scroll > 4200) {
+                    phone_show("#phone_breakfast");
+                    video_show("#video_breakfast");
+                }
+
+                if (scroll > 4260) {
+                    text_show("#breakfast_text1");
+                    $("#breakfast_text1").css('position', 'fixed');
+                    $("#breakfast_text1").css('top', '20%');
+                    $("#breakfast_text1").css('left', '450px');
+                    $("#breakfast_text1").addClass('fadeInLeft slower cell');
+                }
+                if (scroll > 4300) {
+                    text_show("#breakfast_text2");
+                    $("#breakfast_text2").css('position', 'fixed');
+                    $("#breakfast_text2").css('top', '10%');
+                    $("#breakfast_text2").css('left', '1000px');
+                    $("#breakfast_text2").addClass('fadeInTop slower cell');
+                }
+                if (scroll > 4340) {
+                    text_show("#breakfast_text3");
+                    $("#breakfast_text3").css('position', 'fixed');
+                    $("#breakfast_text3").css('top', '37%');
+                    $("#breakfast_text3").css('left', '400px');
+                    $("#breakfast_text3").addClass('fadeInRight slower cell');
+                }
+
+                if (scroll > 4205) {
+                    $('#video_breakfast_play')[0].play();
+                }
+                // 早餐出去
+                if (scroll > 5800) {
+                    $("#phone_breakfast").addClass('fadeOutDown slow cell');
+                    $('#video_breakfast').addClass('fadeOutDown slow cell');
+                    $("#breakfast_text1").addClass('fadeOutDown slow cell');
+                    $("#breakfast_text2").addClass('fadeOutDown slow cell');
+                    $("#breakfast_text3").addClass('fadeOutDown slow cell');
+                }
+
+                // MRT進來 
+                if (scroll > 7650) {
+                    phone_show("#phone_mrt");
+                    video_show("#video_mrt");
+                }
+                if (scroll > 7655) {
+                    $('#video_mrt_play')[0].play();
+                }
+
+                if (scroll > 7900) {
+                    text_show("#mrt_text");
+                    $("#breakfast_text3").addClass('fadeOutDown slow cell');
+                }
+
+                // MRT出去
+                if (scroll > 9200) {
+                    $("#phone_mrt").addClass('fadeOutDown slow cell');
+                    $('#video_mrt').addClass('fadeOutDown slow cell');
+                    $('#mrt_text').addClass('fadeOutDown slow cell');
+                }
+
+                // // clssroom進來 
+                if (scroll > 11000) {
+                    phone_show("#phone_class");
+                    video_show("#video_class");
+                    $("#phone_class").css('position', 'fixed');
+                    $("#phone_class").css('top', '52%');
+                    $("#phone_class").css('left', '450px');
+                    $("#phone_class").css('z-index', '2');
+                    $("#video_class").css('z-index', '5');
+                    $("#video_class").css('top', '53.5%');
+                    $("#video_class").css('left', '695px');
+
+                }
+                if (scroll > 11005) {
+                    $('#video_class_play')[0].play();
+                }
+                if (scroll > 11350) {
+                    $("#phone_class").removeClass('fadeInUp');
+                    $("#video_class").removeClass('fadeInUp');
+                    $("#phone_class").addClass("shake");
+                    $("#video_class").addClass("shake");
+                }
+                // classroom出去
+                if (scroll > 12500) {
+                    $("#phone_class").addClass('fadeOutDown slow cell');
+                    $('#video_class').addClass('fadeOutDown slow cell');
+                }
+
+                // // lib進來 
+                if (scroll > 14400) {
+                    text_show("#lib_text1")
+
+                }
+                if (scroll > 14500) {
+                    $("#lib_text1").addClass('d-none');
+                    text_show("#lib_text2")
+                }
+
+                if (scroll > 14650) {
+                    phone_show("#phone_lib");
+                    video_show("#video_lib");
+                }
+
+                if (scroll > 14655) {
+                    $('#video_lib_play')[0].play();
+
+                }
+                // lib出去
+                if (scroll > 16000) {
+                    $("#phone_lib").addClass('fadeOutDown slow cell');
+                    $('#video_lib').addClass('fadeOutDown slow cell');
+                    $("#lib_text1").addClass('fadeOutDown slow cell');
+                    $("#lib_text2").addClass('fadeOutDown slow cell');
+                }
+
+                // // living進來 
+                // if (scroll > 13600) {
+                //     phone_show("#phone_living");
+                //     video_show("#video_living")
+                // }
+                // if (scroll > 13605) {
+                //     $('#video_living_play')[0].play();
+                // }
+                // // living出去
+                // if (scroll > 14480) {
+                //     $("#phone_living").addClass('fadeOutDown slow cell');
+                //     $('#video_living').addClass('fadeOutDown slow cell');
+                // }
+                // night進來 
+                if (scroll > 17730) {
+                    phone_show("#phone_night");
+                    video_show("#video_night");
+                    $("#phone_night").css('position', 'fixed');
+                    $("#phone_night").css('top', '52%');
+                    $("#phone_night").css('left', '450px');
+                    $("#phone_night").css('z-index', '2');
+                    $("#video_night").css('z-index', '5');
+                    $("#video_night").css('top', '53.5%');
+                    $("#video_night").css('left', '695px');
+
+                }
+                if (scroll > 17735) {
+                    $('#video_night_play')[0].play();
+
+                }
+
+                if (scroll > 17800) {
+                    text_show("#night_text");
+                }
+
+                if (scroll > 18300) {
+                    $('#video_night_play')[0].pause();
+
+                }
+
+                // night出去
+                if (scroll > 18600) {
+                    $("#phone_night").addClass('fadeOutDown slow cell');
+                    $('#video_night').addClass('fadeOutDown slow cell');
+                    $("#night_text").addClass('fadeOutDown slow cell');
+                }
+
+                if (scroll > 21000) {
+                    var glass_id = $('#hour-glass');
+                    var text_fin1 = $('#text_final1');
+                    var text_fin2 = $('#text_final2');
+                    var text_fin3 = $('#text_final3');
+                    glass_id.removeClass('d-none');
+                    glass_id.addClass('fadeInDown slower');
+                    text_fin1.removeClass('d-none');
+                    text_fin1.addClass('fadeInUp slower');
+                    text_fin2.removeClass('d-none');
+                    text_fin2.addClass('fadeInUp slower');
+                    text_fin3.removeClass('d-none');
+                    text_fin3.addClass('fadeInUp slower');
+                }
+
+            });
+        });
+    </script>
+    <script>
+        // chart global options
+        Chart.defaults.global.defaultFontSize = 22;
+        Chart.defaults.global.defaultFontColor = '#ddd';
+
+
+        var ctx = document.getElementById("morningChart").getContext('2d');
+        var chartdata_morn = {
+            type: 'horizontalBar',
+            data: {
+                labels: ["Instagram", "Facebook", "PTT", "Game", "Line", "Youtube", ''],
+                datasets: [{
+                    label: 'Amount of time spent',
+                    data: [60, 0, 0, 0, 0, 0, 100],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(0, 0, 0, 0)',
+
+
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(0, 0, 0, 0)',
+
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                responsive: true,
+                labels: {
+                    fontSize: 18,
+                },
+                title: {
+                    display: true,
+                    text: 'Amount of Time Spent on Phone',
+                    fontSize: 25
+                },
+                legend: {
+                    position: 'right'
+                }
+            }
+        };
+        var inView = false;
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                var winTop = $(window).scrollTop();
+                var winh = $(window).height();
+                var objpos = $("#morningChart").offset().top;
+                if (objpos < winTop + winh * 0.5 && !inView) {
+                    new Chart(ctx, chartdata_morn);
+                    inView = true;
+                    // console.log("successful!!");
+                }
+
+            });
+        });
+    </script>
+
+    <script>
+        var ctx1 = document.getElementById("breakfastChart").getContext('2d');
+        var inView1 = false;
+        $(window).scroll(function () {
+            var winTop1 = $(window).scrollTop();
+            var winh1 = $(window).height();
+            var objpos1 = $("#breakfastChart").offset().top;
+            if (objpos1 < winTop1 + winh1 * 0.5 && !inView1) {
+                new Chart(ctx1, {
+                    type: 'horizontalBar',
+                    data: {
+                        labels: ["Instagram", "Facebook", "PTT", "Game", "Line", "Youtube", ''],
+                        datasets: [{
+                            label: 'Amount of time spent',
+                            data: [60, 40, 0, 0, 0, 0, 100],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(0, 0, 0, 0)',
+
+                            ],
+                            borderColor: [
+                                'rgba(255,99,132,1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(0, 0, 0, 0)',
+
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        },
+                        responsive: true,
+                        labels: {
+                            fontSize: 18,
+                        },
+                        title: {
+                            display: true,
+                            text: 'Amount of Time Spent on Phone',
+                            fontSize: 25
+                        },
+                        legend: {
+                            position: 'right'
+                        }
+                    }
+                });
+
+                inView1 = true;
+                // console.log("successful!!");
+            }
+
+        });
+
+    </script>
+
+    <!-- mrt_chart -->
+    <script>
+        var ctx2 = document.getElementById("mrtChart").getContext('2d');
+        var inView2 = false;
+        $(window).scroll(function () {
+            var winTop2 = $(window).scrollTop();
+            var winh2 = $(window).height();
+            var objpos2 = $("#mrtChart").offset().top;
+            if (objpos2 < winTop2 + winh2 * 0.5 && !inView2) {
+                new Chart(ctx2, {
+                    type: 'horizontalBar',
+                    data: {
+                        labels: ["Instagram", "Facebook", "PTT", "Game", "Line", "Youtube", ''],
+                        datasets: [{
+                            label: 'Amount of time spent',
+                            data: [60, 40, 15, 0, 0, 0, 100],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(0, 0, 0, 0)',
+
+                            ],
+                            borderColor: [
+                                'rgba(255,99,132,1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(0, 0, 0, 0)',
+
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        },
+                        responsive: true,
+                        labels: {
+                            fontSize: 18,
+                        },
+                        title: {
+                            display: true,
+                            text: 'Amount of Time Spent on Phone',
+                            fontSize: 25
+                        },
+                        legend: {
+                            position: 'right'
+                        }
+                    }
+                });
+
+                inView2 = true;
+                // console.log("successful!!");
+            }
+
+        });
+
+    </script>
+
+    <!-- classroom-chart -->
+    <script>
+        var ctx3 = document.getElementById("classroomChart").getContext('2d');
+        var inView3 = false;
+        $(window).scroll(function () {
+            var winTop3 = $(window).scrollTop();
+            var winh3 = $(window).height();
+            var objpos3 = $("#classroomChart").offset().top;
+            if (objpos3 < winTop3 + winh3 * 0.5 && !inView3) {
+                new Chart(ctx3, {
+                    type: 'horizontalBar',
+                    data: {
+                        labels: ["Instagram", "Facebook", "PTT", "Game", "Line", "Youtube", ''],
+                        datasets: [{
+                            label: 'Amount of time spent',
+                            data: [60, 40, 15, 20, 0, 0, 100],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(0, 0, 0, 0)',
+
+                            ],
+                            borderColor: [
+                                'rgba(255,99,132,1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(0, 0, 0, 0)',
+
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        },
+                        responsive: true,
+                        labels: {
+                            fontSize: 18,
+                        },
+                        title: {
+                            display: true,
+                            text: 'Amount of Time Spent on Phone',
+                            fontSize: 25
+                        },
+                        legend: {
+                            position: 'right'
+                        }
+                    }
+                });
+
+                inView3 = true;
+                // console.log("successful!!");
+            }
+
+        });
+
+    </script>
+
+    <!-- lib-chart -->
+    <script>
+        var ctx4 = document.getElementById("libChart").getContext('2d');
+        var inView4 = false;
+        $(window).scroll(function () {
+            var winTop4 = $(window).scrollTop();
+            var winh4 = $(window).height();
+            var objpos4 = $("#libChart").offset().top;
+            if (objpos4 < winTop4 + winh4 * 0.5 && !inView4) {
+                new Chart(ctx4, {
+                    type: 'horizontalBar',
+                    data: {
+                        labels: ["Instagram", "Facebook", "PTT", "Game", "Line", "Youtube", ''],
+                        datasets: [{
+                            label: 'Amount of time spent',
+                            data: [60, 40, 15, 20, 20, 0, 100],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(0, 0, 0, 0)',
+
+                            ],
+                            borderColor: [
+                                'rgba(255,99,132,1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(0, 0, 0, 0)',
+
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        },
+                        responsive: true,
+                        labels: {
+                            fontSize: 18,
+                        },
+                        title: {
+                            display: true,
+                            text: 'Amount of Time Spent on Phone',
+                            fontSize: 25
+                        },
+                        legend: {
+                            position: 'right'
+                        }
+                    }
+                });
+                inView4 = true;
+                // console.log("successful!!");
+            }
+
+        });
+
+    </script>
+
+    <!-- night(total)-chart -->
+    <script>
+        var ctx5 = document.getElementById("nightChart").getContext('2d');
+        var inView5 = false;
+        $(window).scroll(function () {
+            var winTop5 = $(window).scrollTop();
+            var winh5 = $(window).height();
+            var objpos5 = $("#nightChart").offset().top;
+            if (objpos5 < winTop5 + winh5 * 0.5 && !inView5) {
+                new Chart(ctx5, {
+                    type: 'horizontalBar',
+                    data: {
+                        labels: ["Instagram", "Facebook", "PTT", "Game", "Line", "Youtube"],
+                        datasets: [{
+                            label: 'Amount of time spent',
+                            data: [60, 40, 15, 20, 20, 100, 150],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+
+                            ],
+                            borderColor: [
+                                'rgba(255,99,132,1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255,99,132,1)',
+
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        },
+                        responsive: true,
+                        labels: {
+                            fontSize: 18,
+                        },
+                        title: {
+                            display: true,
+                            text: 'Amount of Time Spent on Phone',
+                            fontSize: 25
+                        },
+                        legend: {
+                            position: 'right'
+                        }
+                    }
+                });
+                inView5 = true;
+            }
+
+        });
+
+    </script>
+
+    <script>
+        var ctxFinal = document.getElementById("finalChart").getContext('2d');
         var inViewFinal = false;
-        $(document).ready(function() {
-            $(window).scroll(function() {
+        $(document).ready(function () {
+            $(window).scroll(function () {
                 var winTopFinal = $(window).scrollTop();
                 var winhFinal = $(window).height();
                 var objposFinal = $("#finalChart").offset().top;
@@ -116,19 +981,19 @@
                                 }]
                             },
                             responsive: true, // default true
-                            title:{
+                            title: {
                                 display: true,
-                                text: "Time in day",
-                                fontSize: 25
+                                text: "每日平均使用4小時",
+                                fontSize: 40,
                             },
                             plugins: {
                                 datalabels: {
-                                formatter: function(value, context) {
-                                return context.chart.data.labels[context.dataIndex];
+                                    formatter: function (value, context) {
+                                        return context.chart.data.labels[context.dataIndex];
                                     }
                                 }
-                            }                        
-                        }                        
+                            }
+                        }
                     }
                     );
                     inViewFinal = true;
@@ -137,31 +1002,29 @@
         });
     </script>
 
-    <script>
-        $(document).ready(function () {
-            $(window).scroll(function () {
-                var winTopGlass = $(window).scrollTop();
-                var winhGlass = $(window).height();
-                var objposGlass = $("#hour-glass").offset().top;
-                if (objposGlass < winTopGlass + winhGlass * 0.3) {
-                    var glass_id = $('#hour-glass');
-                    var text_fin1 = $('#text_final1');
-                    var text_fin2 = $('#text_final2');
-                    var text_fin3 = $('#text_final3');
-                    glass_id.removeClass('d-none');
-                    glass_id.addClass('fadeIn slow');
-                    text_fin1.removeClass('d-none');
-                    text_fin1.addClass('fadeIn slow');
-                    text_fin2.removeClass('d-none');
-                    text_fin2.addClass('fadeIn slow');
-                    text_fin3.removeClass('d-none');
-                    text_fin3.addClass('fadeIn slow');
-                }
+    <!-- <script>
+            $(document).ready(function () {
+                $(window).scroll(function () {
+                    var winTopGlass = $(window).scrollTop();
+                    var winhGlass = $(window).height();
+                    var objposGlass = $("#hour-glass").offset().top;
+                    if (objposGlass < winTopGlass + winhGlass * 0.3) {
+                        var glass_id = $('#hour-glass');
+                        var text_fin1 = $('#text_final1');
+                        var text_fin2 = $('#text_final2');
+                        var text_fin3 = $('#text_final3');
+                        glass_id.removeClass('d-none');
+                        glass_id.addClass('fadeIn slow');
+                        text_fin1.removeClass('d-none');
+                        text_fin1.addClass('fadeIn slow');
+                        text_fin2.removeClass('d-none');
+                        text_fin2.addClass('fadeIn slow');
+                        text_fin3.removeClass('d-none');
+                        text_fin3.addClass('fadeIn slow');
+                    }
+                });
             });
-        });
-
-
-    </script>
+        </script> -->
 </body>
 
 

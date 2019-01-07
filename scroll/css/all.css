@@ -1,15 +1,17 @@
-html{
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-}
-
 body{
     height: 20000px;
-    margin: 0;
 }
 
 .bg-stand{
+    /* position: relative; */
+    height: 300vh;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-stand-night{
     /* position: relative; */
     height: 200vh;
     background-position: center center;
@@ -24,7 +26,7 @@ body{
 }
 
 .bg-breakfast{
-    background-image: url(../img/room_morning.PNG);
+    background-image: url(../img/breakfast.PNG);
 }
 
 .bg-mrt{
@@ -66,6 +68,14 @@ body{
     height: calc(100vh + 100px);
 }
 
+.trans-total{
+    text-align: center;
+	padding: 50px 80px;
+    background-color: #282e34;
+    color: #ddd;
+    height: calc(100vh);
+}
+
 .bardiv {
     height: 25px;
     width: 0;
@@ -81,15 +91,47 @@ body{
     height: 380px;
 }
 
+.video-size-horizontal{
+    width: 120px;
+    height: 180px;
+    transform: rotate(-90deg);
+}
+
 #barchart_morning{
     margin-top:200px;
 }
 
+.text-back{
+    background-color: rgba(0,0,0,0.5);
+    font-size: 30px;
+    color: white;
+    width: 450px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.text-back-mrt{
+    background-color: rgba(0,0,0,0.5);
+    font-size: 30px;
+    color: white;
+    width: 450px;
+    height: 150px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.text-back-night{
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    width: 450px;
+    height: 70px;
+    padding: 20px;
+    border-radius: 5px;
+}
 
 /* HOURGLASS */
-body {
-    margin: 50px;
-  }
+
   #hour-glass {
     position: relative;
     width: 60px;
@@ -209,4 +251,3 @@ body {
       right: -2px;
     }
   }
-  
